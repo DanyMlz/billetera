@@ -1,8 +1,1 @@
-{
-    "name": "dany",
-    "lastName": "ortega",
-    "password": "124135"
-}
-
-
-
+{"name":"dany","lastName":"ortega","password":"1234","email":"dnay@gmail.com","goal":"comprar auto","money":480,"objetivoDinero":300}

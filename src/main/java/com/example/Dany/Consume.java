@@ -1,27 +1,37 @@
 package com.example.Dany;
+
+import com.example.Request;
+import com.example.Dayeza.UserSchema;
+
 public class Consume{
 
- public String createTypeConsume(String consumo) throws Exception{
-   if(consumo.equals("")){
-     throw new Exception("The type consume is required");
-   }
-   return consumo;
- }
+  public static UserSchema addExpense(int expense, String name, UserSchema user) throws Exception{
+    if(expense == 0){
+      throw new Exception("El gasto debe ser mayor a 0");
+    }
+    user = Request.getUser(name);
+    int result = user.getMoney() - expense;
+    user.setMoney(result);
 
- public int addExpense(int expense, String consume) throws Exception{
-   if(expense == 0){
-     throw new Exception("The expense is required");
-   }
-   createTypeConsume(consume);
-   return expense;
- }
+    System.out.println("Gasto realizado: " + expense + "\nMoney actual: " + result);
+    return user;
+  }
 
- public int  addIncome(int income) throws Exception{
-   if(income == 0){
-     throw new Exception("The income is required");
-   }
-   return income;
- }
+  public static UserSchema  addIncome(int income ,String name, UserSchema user) throws Exception{
+    if(income == 0){
+      throw new Exception("El ingreso debe ser mayor a 0");
+    }
+    user = Request.getUser(name);
+    int result = user.getMoney() + income;
+    user.setMoney(result);
+
+    System.out.println("Ingresos: " + income + "\nMoney actual: "+ result);
+    return user;
+  }
+
+
+
+
 
 }
 

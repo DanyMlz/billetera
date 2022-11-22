@@ -16,3 +16,5 @@ public class Time{
     return this.typeTime;
   }
 }
+
+
